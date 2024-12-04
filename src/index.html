@@ -3,17 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sleep Outside | Home</title>
+    <title>MTG Store</title>
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
     <header class="divider">
       <div class="logo">
-        <img src="/images/noun_Tent_2517.svg" alt="tent image for logo">
-        <a href="index.html"> Sleep<span class="highlight">Outside</span></a>
+        <img src="images/logos/mtg_logo.jpg" alt="Store logo">
+        <a href="index.html">MTG Store</span></a>
       </div>
       <div class="cart">
-        <a href="cart/index.html">Cart</a>
+        <a href="cart/index.html"><img src="images/icons8-cart-50.png" alt=""></a>
       </div>
     </header>
     <main class="divider">
@@ -36,55 +36,45 @@
         <h2>Sort By Color</h2>
         <ul class="product-list">
           <li class="product-card">
-            <a href="product_pages/marmot-ajax-3.html">
-            <img
-              src="images/red_symbol.jpeg"
-              alt="Red"
-            />
-            <h2 class="card__name">Red Cards</h2>
+            <a href="color.html?color=red" data-color="red">
+              <img src="images/red_symbol.jpeg" alt="Red" />
+              <h2 class="card__name">Red Cards</h2>
+            </a>
           </li>
           <li class="product-card">
-            <a href="product_pages/northface-talus-4.html">
-            <img
-              src="images/blue_symbol.png"
-              alt="Blue"
-            />
-            <h2 class="card__name">Blue Cards</h2>
-          </li>
-          
-          <li class="product-card">
-            <a href="product_pages/northface-alpine-3.html">
-            <img
-              src="images/green_symbol.jpeg"
-              alt="Green"
-            />
-            <h2 class="card__name">
-              Green Cards
-            </h2>
+            <a href="color.html?color=blue" data-color="blue">
+              <img src="images/blue_symbol.png" alt="Blue" />
+              <h2 class="card__name">Blue Cards</h2>
+            </a>
           </li>
           <li class="product-card">
-            <a href="product_pages/cedar-ridge-rimrock-2.html">
+            <a href="color.html?color=green" data-color="green">
             <img
-              src="images/white_symbol.jpeg"
-              alt="White"
-            />
-            <h2 class="card__name">
-              White Cards
-            </h2>
+              src="images/green_symbol.jpeg" alt="Green" />
+              <h2 class="card__name">Green Cards</h2>
+
           </li>
           <li class="product-card">
-            <a href="product_pages/cedar-ridge-rimrock-2.html">
+            <a href="color.html?color=white" data-color="white">
             <img
-              src="images/black_symbol.jpeg"
-              alt="Black"
-            />
-            <h2 class="card__name">
-              Black Cards
-            </h2>
+              src="images/white_symbol.jpeg" alt="White" />
+              <h2 class="card__name">White Cards</h2>
+
+          </li>
+          <li class="product-card">
+            <a href="#" data-color="black">
+            <img
+              src="images/black_symbol.jpeg" alt="Black" />
+              <h2 class="card__name">Black Cards</h2>
+
           </li>
         </ul>
       </section>
     </main>
-    <footer>&copy;NOT a real business</footer>
+    <footer>&copy;NOT a real business
+      <p><a target="_blank" href="https://icons8.com/icon/9671/shopping-cart">Cart</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></p>
+    </footer>
   </body>
+  <script type="module" src="/src/main.mjs"></script>
+
 </html>
