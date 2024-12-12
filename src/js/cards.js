@@ -14,6 +14,7 @@ export async function fetchCards(color) {
 
     // Process the cards into a simpler format (name, image, price)
     return data.data.map((card) => ({
+      id: card.id,
       name: card.name,
       imageUrl: card.image_uris?.normal || "default-image.jpg", // Use a default image if no image is found
       price: card.prices?.usd || "N/A", // Use 'N/A' if price is unavailable

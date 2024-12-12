@@ -1,5 +1,6 @@
 // Import the fetchCards function from cards.js
 import { fetchCards } from './cards.js';
+import { addToCart } from './utils.mjs';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Get the color parameter from the URL
@@ -25,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Function to display the fetched cards
 function displayCards(cards) {
   const container = document.getElementById('product-container');
-  container.innerHTML = ''; // Clear the container before adding new cards
+  container.innerHTML = ''; 
 
   if (cards.length === 0) {
     container.innerHTML = '<p>No cards found for this color.</p>';
@@ -37,10 +38,43 @@ function displayCards(cards) {
     const cardElement = document.createElement('div');
     cardElement.classList.add('product-card');
     cardElement.innerHTML = `
+    <div class="card" data-id="${card.id}">
       <img src="${card.imageUrl}" alt="${card.name}" />
-      <h2>${card.name}</h2>
-      <p>Price: $${card.price}</p>
+      <div class="card-details">
+        <h2>${card.name}</h2>
+        <p>Price: $${card.price}</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
     `;
     container.appendChild(cardElement);
   });
+
+  //Add eventlistener for add to cart button
+  attachCartListener();
+}
+
+function attachCartListener() {
+  const addToCartButton = document.querySelectorAll('.add-to-cart');
+
+  addToCartButton.forEach(button => {
+    button.addEventListener('click', event => { 
+    const cardElement = event.target.closest('.card');
+    const productId = cardElement.dataset.id;
+    const productName = cardElement.querySelector('h2').textContent;
+    const productPrice = parseFloat(cardElement.querySelector('p').textContent.replace('Price: $', '').trim());
+    const productImage = cardElement.querySelector('img').src;
+
+
+    const product = {
+      id: productId,
+      name: productName,
+      price: productPrice,
+      image: productImage,
+      quantity: 1
+    };
+
+    addToCart(product);
+  });
+})
 }
