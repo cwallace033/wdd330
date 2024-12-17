@@ -35,6 +35,21 @@ function displayCards(cards) {
 
   // Loop through the cards and display them
   cards.forEach(card => {
+    if (card.price === "N/A") {
+      const cardElement = document.createElement('div');
+    cardElement.classList.add('product-card');
+    cardElement.innerHTML = `
+    <div class="card" data-id="${card.id}">
+      <img src="${card.imageUrl}" alt="${card.name}" />
+      <div class="card-details">
+        <h2>${card.name}</h2>
+        <p>Price: $${card.price}</p>
+        <p class="add-to-cart">Card unavailable for purchase</p>
+      </div>
+    </div>
+    `;
+    container.appendChild(cardElement);
+    } else {
     const cardElement = document.createElement('div');
     cardElement.classList.add('product-card');
     cardElement.innerHTML = `
@@ -48,6 +63,7 @@ function displayCards(cards) {
     </div>
     `;
     container.appendChild(cardElement);
+  }
   });
 
   //Add eventlistener for add to cart button
