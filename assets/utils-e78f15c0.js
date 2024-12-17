@@ -1,0 +1,1 @@
+function s(t,e=document){return e.querySelector(t)}function n(t){return JSON.parse(localStorage.getItem(t))}function r(t,e){localStorage.setItem(t,JSON.stringify(e))}function c(t){const e=n("cart")||[],a=e.find(o=>o.id===t.id);a?a.quantity+=1:(t.quantity=1,e.push(t)),r("cart",e),alert(`${t.name} added to the cart!`),console.log(n("cart"))}export{c as a,n as g,s as q,r as s};
